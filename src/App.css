@@ -1,4 +1,63 @@
 .App {
+  display: flex;  
+  flex-direction: column; /* Элементы располагаются по вертикали */
+  justify-content: center; /* Центрируем элементы по вертикали (опционально) */
+  align-items: center; /* Центрируем элементы по горизонтали */
+  height: 100vh; /* Опционально: делает контейнер высотой на весь экран */
+  background-color: grey;
+}
+
+.width-custom {
+  width: 60%;    
+}
+
+@media(max-width: 768px){
+  .width-custom{
+    width: 90%;
+  }
+}
+
+.border {
+  border: 1px green solid;
+  padding: 9px;
+  margin: 5px;
+}
+
+.input-border-default {
+  border: 3px solid rebeccapurple;
+  outline: none;
+}
+
+.input-border-valid {
+  border: 3px solid greenyellow;
+  outline: none;
+}
+
+.input-border-not-valid {
+  border: 3px solid crimson;
+  outline: none;
+}
+
+.user-input-block {
+  margin-top: 5px;  
+  
+  display: grid;
+  grid-template-columns: 60% 40%;
+}
+
+.label{
+  text-align: right;  
+  margin-right: 10px;
+}
+
+.button{
+  text-align: right;
+  margin-top: 10px;
+}
+
+
+
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +94,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
