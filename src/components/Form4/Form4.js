@@ -81,12 +81,12 @@ const Form4 = () => {
       return;
     }
 
-    if(!isLanguagesValid){
+    if(languages.length === 0){
       alert('Please select language');
       return;
     }
 
-    if(!userId || !password || !name || !address || !country || !zipCode || !eMail || !sex || !languages){
+    if(!userId || !password || !name || !address || !country || !zipCode || !eMail || !sex || languages.length === 0){
       alert('All inputs must be filled');
       return;
     }
@@ -194,8 +194,7 @@ const Form4 = () => {
       setLanguages((prevLanguages) => [...prevLanguages, newValue]);
     } else {
       setLanguages((prevLanguages) => prevLanguages.filter((language) => language !==newValue))
-    }    
-    setIsLanguagesValid(languages.length > 0);
+    }        
   };
 
   const handleChangeAbout = (event) => {    
