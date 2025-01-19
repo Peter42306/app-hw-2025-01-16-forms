@@ -1,3 +1,7 @@
+Added Form5, the simplest calculator with memory of previous calculations
+
+![image](https://github.com/user-attachments/assets/2e534913-a9fc-4fe6-8188-786cac9cae32)
+
 Added input forms with validation
 
 ![image](https://github.com/user-attachments/assets/3bd91f47-9f62-4256-a4db-4bf1abf37d4e)
