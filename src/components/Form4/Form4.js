@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { saveAs } from 'file-saver';
 
 
 const Form4 = () => {
@@ -33,9 +34,20 @@ const Form4 = () => {
 
   const [about, setAbout] = useState('');  
 
+  // const [userData, setUserData] = useState({
+  //   userId,password,name,address,country,zipCode,eMail,sex,languages,about
+    
+  // })
+
   const [users, setUsers] = useState([]);
 
   /////////////////////////////////////////////
+
+  useEffect(() => {    
+    if (users.length > 0) {
+      saveToFileJson(users);
+    }
+  }, [users]);
   
   const handleSubmit = (event) => {
 
@@ -90,7 +102,7 @@ const Form4 = () => {
       alert('All inputs must be filled');
       return;
     }
-
+    
     setUsers(prevUsers => [
       ...prevUsers, {
         id: userId, 
@@ -104,7 +116,10 @@ const Form4 = () => {
         languages: languages,
         about: about
       }
-    ]);
+      
+    ]);    
+
+    //saveToFileJson();    
 
     setUserId('');
     setPassword('');
@@ -115,8 +130,11 @@ const Form4 = () => {
     setEMail('');
     setSex('');
     setLanguages([]);
-    setAbout('');
+    setAbout('');    
+    
   };
+
+  
 
   /////////////////////////////////////////////
 
@@ -193,7 +211,7 @@ const Form4 = () => {
     if(isChecked){
       setLanguages((prevLanguages) => [...prevLanguages, newValue]);
     } else {
-      setLanguages((prevLanguages) => prevLanguages.filter((language) => language !==newValue))
+      setLanguages((prevLanguages) => prevLanguages.filter((language) => language !==newValue));
     }        
   };
 
@@ -202,7 +220,32 @@ const Form4 = () => {
     setAbout(newValue);    
   };
 
+  const saveToFileJson = () => {
+    const currentDate = new Date();
 
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+    const date = String(currentDate.getDate()).padStart(2, '0');
+    const hours = String(currentDate.getHours()).padStart(2, '0');
+    const minutes = String(currentDate.getMinutes()).padStart(2, '0');
+    const seconds = String(currentDate.getSeconds()).padStart(2, '0');
+
+    console.log('File name + ' + currentDate);
+    console.log('File name + ' + year);
+    console.log('File name + ' + month);
+    console.log('File name + ' + date);
+    console.log('File name + ' + hours);
+    console.log('File name + ' + minutes);
+    console.log('File name + ' + seconds);
+
+    const fileName = `users-${year}-${month}-${date}-${hours}-${minutes}-${seconds}.json`;
+    
+    const dataToSave = JSON.stringify(users, null, 2);
+
+    const blob = new Blob([dataToSave], {type: 'application/json'});       
+
+    saveAs(blob, fileName);
+  };
 
 
   /////////////////////////////////////////////
@@ -413,7 +456,7 @@ const Form4 = () => {
         
         <div className='button'>
           <button type='submit'>Submit data</button>
-        </div>  
+        </div>          
       </form>
 
       <div>        
@@ -434,8 +477,7 @@ const Form4 = () => {
           </li>          
         ))}
         </ol>
-      </div>          
-
+      </div>
     </div>
   );
 };
