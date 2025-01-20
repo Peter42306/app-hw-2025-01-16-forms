@@ -129,10 +129,11 @@ const Form5 = () =>{
       <div>
         <label>X * 0.05  = {calculatedNumber2}</label>
       </div>      
+      <p>History:</p>
 
       <div>
         <ol>
-          {previousCalculations.map((calculation, index) => (
+          {previousCalculations.slice().reverse().map((calculation, index) => (
             <li key={index}>
               Input Number: {calculation.inputNumber}, 
               X * 0.5: {calculation.calculatedNumber1}, 
