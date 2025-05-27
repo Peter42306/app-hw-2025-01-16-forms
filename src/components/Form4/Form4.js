@@ -252,12 +252,12 @@ const Form4 = () => {
 
   return(
     <div className='border width-custom' >
-      <p>Component Form4</p>
+      <p>Form Validation Template</p>
       
       <form onSubmit={handleSubmit}>
 
         <div className='user-input-block'>
-          <label className='label'>User id [5 to 7 charecters]:</label>
+          <label className='label'>User ID (5 to 7 digits):</label>
           <input 
             type='text'            
             value={userId}
@@ -273,7 +273,7 @@ const Form4 = () => {
         </div>
 
         <div className='user-input-block'>
-          <label className='label'>Password [7 to 12 charecters]:</label>
+          <label className='label'>Password (7 to 12 charecters, letters and numbers):</label>
           <input 
             type='text'
             value={password}
@@ -289,7 +289,7 @@ const Form4 = () => {
         </div>
 
         <div className='user-input-block'>
-          <label className='label'>Name [Alphabates characters]:</label>
+          <label className='label'>Name (letters only):</label>
           <input 
             type='text'
             value={name}
@@ -305,7 +305,7 @@ const Form4 = () => {
         </div>
 
         <div className='user-input-block'>
-          <label className='label'>Address [alphanumeric characters]:</label>
+          <label className='label'>Address (letters and numbers):</label>
           <input 
             type='text'
             value={address}
@@ -321,7 +321,7 @@ const Form4 = () => {
         </div>
 
         <div className='user-input-block'>
-          <label className='label'>Country [Must select country]:</label>
+          <label className='label'>Country (select one):</label>
           <select 
             value={country} 
             onChange={handleChangeCountry}
@@ -345,7 +345,7 @@ const Form4 = () => {
         </div>
         
         <div className='user-input-block'>
-          <label className='label'>ZIP Code [alphanumeric characters]:</label>
+          <label className='label'>ZIP Code (letters and numbers):</label>
           <input 
             type='text'
             value={zipCode}
@@ -361,7 +361,7 @@ const Form4 = () => {
         </div>
 
         <div className='user-input-block'>
-          <label className='label'>Email [Valid email]:</label>
+          <label className='label'>Email (valid format):</label>
           <input 
             type='text'
             value={eMail}
@@ -377,7 +377,7 @@ const Form4 = () => {
         </div>
 
         <div className='user-input-block'>
-          <label className='label'>Sex [Select Male or Female]:</label>
+          <label className='label'>Gender (select one):</label>
 
           <div>
             <input
@@ -402,7 +402,7 @@ const Form4 = () => {
         </div>
 
         <div className='user-input-block'>
-          <label className='label'>Language [Optional]:</label>
+          <label className='label'>Language (optional):</label>
 
           <div>
             <input
@@ -445,7 +445,7 @@ const Form4 = () => {
         </div>
 
         <div className='user-input-block'>
-          <label className='label'>About [optional]:</label>
+          <label className='label'>About (optional):</label>
           <textarea
             value={about}
             onChange={handleChangeAbout}

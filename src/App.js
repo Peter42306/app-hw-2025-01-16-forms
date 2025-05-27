@@ -10,15 +10,15 @@ function App() {
   return (
     <div className='App'>
       
-      <Form5></Form5>
+      {/* <Form5></Form5> */}
       
       <Form4></Form4>
 
-      <Form3></Form3>
+      {/* <Form3></Form3>
 
       <Form2></Form2>
 
-      <Form1></Form1>
+      <Form1></Form1> */}
 
     </div>
   );
