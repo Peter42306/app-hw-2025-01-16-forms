@@ -57,21 +57,22 @@ const Form5 = () =>{
 
   return(
     <div className='border width-custom'>
-      <p>Component Form5</p>
+      <p>Calculator for fixed values</p>
       
       <form onSubmit={handleSubmit}>
         
-        <label>Enter value X:</label>
+        <label>Enter value X:</label><br/>
 
         <input
           type='number'
           value={inputNumber}
           onChange={handleChangeInputNumber}
-        />
-        <button type='submit'>Submit to array</button>       
-        
+        /><br/>
+        <button type='submit'>Submit to array</button>               
 
       </form>
+
+      <hr/>
 
       <div>
         <label>Decimal places: </label>
@@ -122,6 +123,8 @@ const Form5 = () =>{
         <label htmlFor='4'>4</label>
       </div>     
 
+      <hr/>
+
       <div>
         <label>X * 0.5  = {calculatedNumber1}</label>
       </div>      
@@ -129,16 +132,20 @@ const Form5 = () =>{
       <div>
         <label>X * 0.05  = {calculatedNumber2}</label>
       </div>      
+
+      <hr/>
+
       <p>History:</p>
 
       <div>
         <ol>
           {previousCalculations.slice().reverse().map((calculation, index) => (
             <li key={index}>
-              Input Number: {calculation.inputNumber}, 
-              X * 0.5: {calculation.calculatedNumber1}, 
-              X * 0.05: {calculation.calculatedNumber2}, 
+              Input Number: {calculation.inputNumber}<br/>
+              Result 1: {calculation.inputNumber} * 0.5 = {calculation.calculatedNumber1}<br/>
+              Result 2: {calculation.inputNumber} * 0.05 = {calculation.calculatedNumber2} <br/>
               Decimal Places: {calculation.decimalPlaces}
+              <hr/>
             </li>
           ))}
         </ol>
